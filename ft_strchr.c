@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ediaz--c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 13:56:28 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/03/08 15:09:24 by ediaz--c         ###   ########.fr       */
+/*   Created: 2023/03/08 15:38:48 by ediaz--c          #+#    #+#             */
+/*   Updated: 2023/03/08 16:58:19 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char	*ft_strchr(const char *str, int c)
 {
-	size_t	i;
-	size_t	len;
+	char	*s;
 
-	i = 0;
-	len = ft_strlen(src);
-	if (size != 0)
+	s = (char *)str;
+	while (*s)
 	{
-		while (src[i] != '\0' && i < size - 1)
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
+		if (*s == (unsigned char)c)
+			return (s);
+		s++;
 	}
-	return (len);
+	if (c == 0)
+		return (s);
+	return (0);
 }
+/*
+#include <stdio.h>
+#include <string.h>
+int main(void)
+{
+	printf("%s\n", ft_strchr("teste", 1024));
+	printf("%s\n", strchr("teste", 1024));
+}
+*/
