@@ -6,7 +6,7 @@
 /*   By: ediaz--c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 15:38:48 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/03/08 16:58:19 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/03/08 20:57:29 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ char	*ft_strchr(const char *str, int c)
 	s = (char *)str;
 	while (*s)
 	{
-		if (*s == (unsigned char)c)
+		if (*s == (char)c)
 			return (s);
 		s++;
 	}
-	if (c == 0)
+	if ((char)c == '\0')
 		return (s);
 	return (0);
 }

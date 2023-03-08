@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ediaz--c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 18:20:16 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/03/08 19:08:11 by ediaz--c         ###   ########.fr       */
+/*   Created: 2023/03/08 19:14:40 by ediaz--c          #+#    #+#             */
+/*   Updated: 2023/03/08 19:39:02 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t			i;
-	unsigned char	*str1;
-	unsigned char	*str2;
+	char	*str;
+	char	*find;
+	size_t	i;
+	size_t	j;
 
+	str = (char *)haystack;
+	find = (char *)needle;
 	i = 0;
-	str1 = (unsigned char *)s1;
-	str2 = (unsigned char *)s2;
-	while (i < n)
+	if (*find == '\0')
+		return (str);
+	while (str[i] != '\0')
 	{
-		if (*str1 != *str2)
-			return (*str1 - *str2);
-		str1++;
-		str2++;
+		j = 0;
+		while (find[j] != '\0' && find[j] == str[i + j]
+			&& i + j < len)
+			j++;
+		if (find[j] == '\0')
+			return (&str[i]);
 		i++;
+		j = 0;
 	}
 	return (0);
 }

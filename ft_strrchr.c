@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ediaz--c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 18:20:16 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/03/08 19:08:11 by ediaz--c         ###   ########.fr       */
+/*   Created: 2023/03/08 20:17:38 by ediaz--c          #+#    #+#             */
+/*   Updated: 2023/03/08 20:57:32 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_strrchr(const char *s, int c)
 {
-	size_t			i;
-	unsigned char	*str1;
-	unsigned char	*str2;
+	char	*str;
 
-	i = 0;
-	str1 = (unsigned char *)s1;
-	str2 = (unsigned char *)s2;
-	while (i < n)
+	str = (char *)s;
+	while (*str)
+		str++;
+	if ((char)c == '\0')
+		return (str);
+	while (str >= s)
 	{
-		if (*str1 != *str2)
-			return (*str1 - *str2);
-		str1++;
-		str2++;
-		i++;
+		if (*str == (char)c)
+			return (str);
+		str--;
 	}
 	return (0);
 }
+/*
+int	main(void)
+{
+	char text[] = "hola qhue tal";
+	char c = 'h';
+	printf("%s", ft_strrchr(text, c));
+}
+*/

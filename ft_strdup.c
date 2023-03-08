@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ediaz--c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 18:20:16 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/03/08 19:08:11 by ediaz--c         ###   ########.fr       */
+/*   Created: 2023/03/08 19:47:21 by ediaz--c          #+#    #+#             */
+/*   Updated: 2023/03/08 20:04:51 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_strdup(const char *s)
 {
-	size_t			i;
-	unsigned char	*str1;
-	unsigned char	*str2;
+	int		i;
+	char	*str;
+	char	*cpy;
 
+	str = (char *)s;
+	i = ft_strlen(str) + 1;
+	cpy = (char *)malloc (sizeof(char) * i);
+	if (cpy == NULL)
+		return (0);
 	i = 0;
-	str1 = (unsigned char *)s1;
-	str2 = (unsigned char *)s2;
-	while (i < n)
+	while (str[i] != '\0')
 	{
-		if (*str1 != *str2)
-			return (*str1 - *str2);
-		str1++;
-		str2++;
+		cpy[i] = str[i];
 		i++;
 	}
-	return (0);
+	cpy[i] = '\0';
+	return (cpy);
 }
