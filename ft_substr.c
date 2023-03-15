@@ -1,42 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ediaz--c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 12:53:58 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/03/14 19:04:03 by ediaz--c         ###   ########.fr       */
+/*   Created: 2023/03/09 12:34:05 by ediaz--c          #+#    #+#             */
+/*   Updated: 2023/03/15 16:03:35 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *str1, const void *str2, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned char	*s1;
-	unsigned char	*s2;
-	size_t			i;
+	size_t	i;
+	size_t	j;
+	size_t	size;
+	char	*str;
 
-	s1 = (unsigned char *)str1;
-	s2 = (unsigned char *)str2;
+	j = 0;
 	i = 0;
-	if (str1 == str2 || n == 0)
-		return (str1);
-	if (str1 > str2)
+	size = len;
+	if (ft_strlen(s) < len)
+		size = ft_strlen(s);
+	str = (char *)malloc (sizeof(*s) * (size + 1));
+	if (str == NULL)
+		return (0);
+	while (s[i] != '\0')
 	{
-		while (n-- > 0)
+		if (i >= start && j < len)
 		{
-			s1[n] = s2[n];
+			str[j] = s[i];
+			j++;
 		}
+		i++;
 	}
-	else
-	{
-		while (i < n)
-		{
-			s1[i] = s2[i];
-			i++;
-		}
-	}
-	return (str1);
+	str[j] = '\0';
+	return (str);
 }

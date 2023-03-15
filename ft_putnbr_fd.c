@@ -1,42 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ediaz--c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 12:53:58 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/03/14 19:04:03 by ediaz--c         ###   ########.fr       */
+/*   Created: 2023/03/14 12:39:06 by ediaz--c          #+#    #+#             */
+/*   Updated: 2023/03/14 12:51:07 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *str1, const void *str2, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned char	*s1;
-	unsigned char	*s2;
-	size_t			i;
-
-	s1 = (unsigned char *)str1;
-	s2 = (unsigned char *)str2;
-	i = 0;
-	if (str1 == str2 || n == 0)
-		return (str1);
-	if (str1 > str2)
+	if (n == -2147483648)
 	{
-		while (n-- > 0)
-		{
-			s1[n] = s2[n];
-		}
+		ft_putchar_fd('-', fd);
+		ft_putchar_fd('2', fd);
+		ft_putnbr_fd(147483648, fd);
+	}
+	else if (n < 0)
+	{
+		n = -n;
+		ft_putchar_fd('-', fd);
+		ft_putnbr_fd(n, fd);
+	}
+	else if (n > 9)
+	{
+		ft_putnbr_fd((n / 10), fd);
+		ft_putnbr_fd((n % 10), fd);
 	}
 	else
-	{
-		while (i < n)
-		{
-			s1[i] = s2[i];
-			i++;
-		}
-	}
-	return (str1);
+		ft_putchar_fd((n + '0'), fd);
 }

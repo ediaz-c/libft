@@ -6,7 +6,7 @@
 /*   By: ediaz--c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 20:17:38 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/03/08 20:57:32 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/03/15 15:12:15 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,3 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (0);
 }
-/*
-int	main(void)
-{
-	char text[] = "hola qhue tal";
-	char c = 'h';
-	printf("%s", ft_strrchr(text, c));
-}
-*/

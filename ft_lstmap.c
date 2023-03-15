@@ -1,42 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ediaz--c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 12:53:58 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/03/14 19:04:03 by ediaz--c         ###   ########.fr       */
+/*   Created: 2023/03/14 20:55:18 by ediaz--c          #+#    #+#             */
+/*   Updated: 2023/03/14 21:31:56 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *str1, const void *str2, size_t n)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	unsigned char	*s1;
-	unsigned char	*s2;
-	size_t			i;
+	t_list	*map;
+	t_list	*node;
 
-	s1 = (unsigned char *)str1;
-	s2 = (unsigned char *)str2;
-	i = 0;
-	if (str1 == str2 || n == 0)
-		return (str1);
-	if (str1 > str2)
+	if (!lst || !del)
+		return (0);
+	map = NULL;
+	while (lst)
 	{
-		while (n-- > 0)
+		node = ft_lstnew(f(lst->content));
+		if (!node)
 		{
-			s1[n] = s2[n];
+			ft_lstclear(&node, del);
+			return (0);
 		}
+		ft_lstadd_back(&map, node);
+		lst = lst->next;
 	}
-	else
-	{
-		while (i < n)
-		{
-			s1[i] = s2[i];
-			i++;
-		}
-	}
-	return (str1);
+	return (map);
 }
