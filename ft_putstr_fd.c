@@ -6,7 +6,7 @@
 /*   By: ediaz--c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 12:29:57 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/03/14 12:34:34 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/03/21 16:44:21 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
+	if (!s)
+		return ;
 	while (s[i] != '\0')
 	{
 		ft_putchar_fd(s[i], fd);

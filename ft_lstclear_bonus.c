@@ -6,7 +6,7 @@
 /*   By: ediaz--c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 20:37:34 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/03/14 20:49:36 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/03/21 16:50:22 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	t_list	*node;
 	t_list	*tmp;
 
+	if (!lst || !del)
+		return ;
 	tmp = *lst;
 	if (!tmp)
 		return ;

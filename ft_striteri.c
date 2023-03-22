@@ -6,7 +6,7 @@
 /*   By: ediaz--c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 12:05:04 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/03/14 12:15:47 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/03/21 16:45:48 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	size_t	i;
 
 	i = 0;
+	if (!s || !f)
+		return ;
 	while (i < ft_strlen(s))
 	{
 		f(i, &s[i]);

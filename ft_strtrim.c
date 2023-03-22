@@ -6,7 +6,7 @@
 /*   By: ediaz--c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:41:27 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/03/14 18:31:36 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/03/21 17:07:34 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		start;
 	int		end;
 
+	if (!s1)
+		return (0);
+	if (!set)
+		return ((char *)s1);
 	start = startchar(s1, set);
 	end = endchar(s1, set);
 	if (set == NULL)

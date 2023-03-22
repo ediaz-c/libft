@@ -6,7 +6,7 @@
 /*   By: ediaz--c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 19:56:25 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/03/14 20:37:22 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/03/21 16:36:57 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
+	if (!lst || !del)
+		return ;
 	if (lst)
 	{
 		del(lst->content);

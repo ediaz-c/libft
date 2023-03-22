@@ -6,7 +6,7 @@
 /*   By: ediaz--c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 12:42:11 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/03/15 15:11:57 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/03/21 16:55:31 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_word_len(char const *str, char c, int index)
 	return (i);
 }
 
-void	ft_free_split(char **split, int size)
+char	**ft_free_split(char **split, int size)
 {
 	int	i;
 
@@ -54,6 +54,7 @@ void	ft_free_split(char **split, int size)
 		i++;
 	}
 	free(split);
+	return (0);
 }
 
 char	**ft_split(char const *s, char c)
@@ -64,6 +65,8 @@ char	**ft_split(char const *s, char c)
 
 	j = 0;
 	i = 0;
+	if (!s)
+		return (0);
 	split = (char **)malloc (sizeof(char *) * (ft_word_count(s, c) + 1));
 	if (!(split))
 		return (0);
@@ -73,10 +76,7 @@ char	**ft_split(char const *s, char c)
 			i++;
 		split[j] = ft_substr(s, i, ft_word_len(s, c, i));
 		if (!(split[j]))
-		{
-			ft_free_split(split, j);
-			return (0);
-		}
+			return (ft_free_split(split, j));
 		j++;
 		i += ft_word_len(s, c, i);
 	}
