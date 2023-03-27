@@ -39,7 +39,9 @@ char	*ft_minnb(char *itoa, char *min)
 	int	i;
 
 	itoa = (char *)malloc (sizeof(char) * 12);
-	i = 0;
+	if (!itoa)
+          return (0);
+        i = 0;
 	while (i < 11)
 	{
 		itoa[i] = min[i];
