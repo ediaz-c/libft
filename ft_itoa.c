@@ -6,7 +6,7 @@
 /*   By: ediaz--c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 15:24:03 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/03/13 17:17:41 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/03/27 14:45:01 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ char	*ft_minnb(char *itoa, char *min)
 
 	itoa = (char *)malloc (sizeof(char) * 12);
 	if (!itoa)
-          return (0);
-        i = 0;
+		return (0);
+	i = 0;
 	while (i < 11)
 	{
 		itoa[i] = min[i];

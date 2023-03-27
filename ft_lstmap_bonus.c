@@ -6,7 +6,7 @@
 /*   By: ediaz--c <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 20:55:18 by ediaz--c          #+#    #+#             */
-/*   Updated: 2023/03/14 21:31:56 by ediaz--c         ###   ########.fr       */
+/*   Updated: 2023/03/27 18:33:20 by ediaz--c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,19 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*map;
 	t_list	*node;
+	void	*ptr;
 
 	if (!lst || !del || !f)
 		return (0);
 	map = NULL;
 	while (lst)
 	{
-		node = ft_lstnew((*f)(lst->content));
+		ptr = f(lst->content);
+		node = ft_lstnew(ptr);
 		if (!node)
 		{
-			ft_lstclear(&node, (*del));
+			del (ptr);
+			ft_lstclear(&map, (*del));
 			return (0);
 		}
 		ft_lstadd_back(&map, node);
