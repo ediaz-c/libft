@@ -12,9 +12,11 @@ LIB		=	ar -rcs
 all:	$(NAME)
 
 $(NAME):	$(OBJS) $(INCLUDE)
-	@$(LIB) $(NAME) $(OBJS)
-bonus:	$(BONUS) $(BOBJS) $(INCLUDE)
-	@$(LIB) $(NAME) $(BOBJS) $(OBJS)
+	$(LIB) -r $@ $?
+bonus:	 $(BOBJS) $(OBJS)
+	@$(LIB) -r $(NAME) $?
+%.o:%.c
+	$(CC) -c $(CFLAGS) $?
 clean:
 	@$(RM) $(OBJS) $(BOBJS)
 
