@@ -161,9 +161,9 @@ La parte del bonus consiste en crear funciónes con las cuales crear y manipular
 La estructura de los nodos es la siguiente:
 <pre><code>typedef struct s_list
 {
-void *content;
-struct s_list *next;
-} t_list;
+  void *content;
+  struct s_list *next;
+}              t_list;
 </code></pre>
 <table>
   <tr>
