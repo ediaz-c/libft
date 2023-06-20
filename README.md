@@ -1,5 +1,5 @@
 <h1>libft</h1>
-Este proyecto es una librería en lenguaje C que recrea varias funciones existentes de la libc y también introduce algunas nuevas funcionalidades.
+Este proyecto consiste en crear una librería en lenguaje C recreando varias funciones existentes de la libc y también introduciendo algunas funciones nuevas.
 <h2>Mandatory</h2>
 La parte obligatoria junta funciones ya existentes con algunas añadidas con las cuales se puede manipular memoria, strings, etc.
 <h3>Parte 1 - Funciones de libc</h3>
